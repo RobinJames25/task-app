@@ -32,7 +32,12 @@ export const signup = async (req, res, next) => {
     user._id = insertedId;
     const { password: pass, updatedAt, createdAt, ...rest } = user;
     res
-      .cookie('taskly_token', token, { httpOnly: true })
+      .cookie('taskly_token', token, {
+        httpOnly: true,
+        sameSite: 'None',
+        secure: true,
+        partitioned: true,
+     })
       .status(200)
       .json(rest);
   } catch (error) {
