@@ -17,7 +17,12 @@ app.use(cookieParser());
 app.use(fileUpload());
 app.use(
     cors({
-        origin: process.env.CLIENT_URL,
+        origin: [
+            process.env.CLIENT_URL, 
+            "http://localhost:3000" // Allow local frontend during development
+        ],
+        methods: "GET, POST, PUT, DELETE, OPTIONS",
+        allowedHeaders: "Content-Type, Authorization",
         credentials: true,
     })
 );
