@@ -11,7 +11,7 @@ import taskRouter from './routes/task.route.js';
 
 import { errorHandler } from './libs/middleware.js';
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000; //8000 for local development
 const app = express();
 
 app.use(express.json());
