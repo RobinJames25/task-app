@@ -125,6 +125,12 @@ export default function Profile() {
     }
     return (
         <Box p='3' maxW='lg' mx='auto'>
+            <DeleteConfirmation
+                alertTitle='Delete Account'
+                handleClick={handleDeleteUser}
+                isOpen={isOpen}
+                onClose={onClose}
+            />
             <Heading
                 as='h1'
                 fontSize='3xl'
