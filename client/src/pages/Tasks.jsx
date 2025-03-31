@@ -33,7 +33,7 @@ export default function Tasks() {
     const fetchTasks = async () => {
       const query = searchParams.size ? '?' + searchParams.toString() : '';
       const res = await fetch(
-        `${API_BASE_URL}/tasks/user/${user._id}${query}`,
+        `${API_BASE_URL}/api/v1/tasks/user/${user._id}${query}`,
         {
           credentials: 'include',
         }
