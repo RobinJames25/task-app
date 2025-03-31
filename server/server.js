@@ -11,7 +11,7 @@ import taskRouter from './routes/task.route.js';
 
 import { errorHandler } from './libs/middleware.js';
 
-const PORT = process.env.PORT || 3000; //8000 for local development
+const PORT = process.env.PORT || 3000;
 const app = express();
 
 app.use(express.json());
@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(fileUpload());
 app.use(
   cors({
-    origin: (process.env.CLIENT_URL || 'https://task-app-beryl-seven.vercel.app').replace(/\/$/, ''),
+    origin: process.env.CLIENT_URL,
     credentials: true,
   })
 );
