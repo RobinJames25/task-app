@@ -25,30 +25,27 @@ export default function SignIn() {
     formState: { errors, isSubmitting },
   } = useForm();
 
-  const doSubmit = async (values) => {
-    console.log("Submitting form with values:", values); // Check if function runs
+  const doSubmit = async values => {
     try {
       const res = await fetch(`${API_BASE_URL}/auth/signin`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
         body: JSON.stringify(values),
       });
-  
-      console.log("Response Status:", res.status);
       const data = await res.json();
-      console.log("Response Data:", data);
-  
       if (res.status === 200) {
-        toast.success("Sign In Successful");
+        toast.success('Sign In Successful');
         updateUser(data);
-        navigate("/profile");
+        navigate('/profile');
       } else {
-        toast.error(data.message || "Authentication failed");
+        toast.error(data.message);
       }
     } catch (error) {
-      console.error("Fetch error:", error);
-      toast.error("Something went wrong");
+      console.log(error);
+      toast.error('Something went wrong');
     }
   };
   return (
