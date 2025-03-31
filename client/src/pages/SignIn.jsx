@@ -27,7 +27,7 @@ export default function SignIn() {
 
   const doSubmit = async values => {
     try {
-      const res = await fetch(`${API_BASE_URL}/auth/signin`, {
+      const res = await fetch(`${API_BASE_URL}/api/v1/auth/signin`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
