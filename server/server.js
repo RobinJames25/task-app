@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(fileUpload());
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || 'https://task-app-beryl-seven.vercel.app',
+    origin: (process.env.CLIENT_URL || 'https://task-app-beryl-seven.vercel.app').replace(/\/$/, ''),
     credentials: true,
   })
 );
