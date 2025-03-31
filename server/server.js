@@ -20,7 +20,7 @@ app.use(fileUpload());
 app.use(
   cors({
     origin: [
-        process.env.CLIENT_URL,
+        process.env.CLIENT_URL || 'https://task-app-beryl-seven.vercel.app/',
     ],
     credentials: true,
   })
